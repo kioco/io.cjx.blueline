@@ -1,13 +1,14 @@
 package io.cjx.blueline.config
+import java.io.File
 import java.util.ServiceLoader
 
 import scala.language.reflectiveCalls
 import scala.collection.JavaConversions._
 import scala.collection.JavaConverters._
-import com.typesafe.config.{Config, ConfigRenderOptions}
+import com.typesafe.config.{Config, ConfigFactory, ConfigRenderOptions, ConfigResolveOptions}
 import io.cjx.blueline.apis._
-import org.antlr.v4.runtime.{ANTLRFileStream, CharStream, CommonTokenStream}
 import io.cjx.blueline.configparser.{ConfigLexer, ConfigParser, ConfigVisitor}
+import org.antlr.v4.runtime.{ANTLRFileStream, CharStream, CommonTokenStream}
 
 import util.control.Breaks._
 
@@ -23,7 +24,8 @@ class ConfigBuilder(configFile: String) {
 
     println("[INFO] Loading config file: " + configFile)
 
-    // CharStreams is for Antlr4.7
+    // variables substitution / variables resolution order:
+    // onfig file --> syste environment --> java properties
     // val charStream: CharStream = CharStreams.fromFileName(configFile)
     val charStream: CharStream = new ANTLRFileStream(configFile)
     val lexer: ConfigLexer = new ConfigLexer(charStream)

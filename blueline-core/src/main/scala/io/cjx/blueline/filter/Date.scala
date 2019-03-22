@@ -18,7 +18,6 @@ class Date extends BaseFilter{
       case "UNIX_MS" => new UnixMSParser(targetTimeFormat)
       case sourceTimeFormat: String => new FormatParser(sourceTimeFormat, targetTimeFormat)
     }
-
     val func = udf((s: String) => {
       val (success, dateTime) = dateParser.parse(s)
       if (success) {
@@ -27,7 +26,6 @@ class Date extends BaseFilter{
         StringTemplate.substitute(defaultValue, targetTimeFormat)
       }
     })
-
     config.getString("source_field") match {
       case RowConstant.ROOT => df.withColumn(targetField, func(lit(System.currentTimeMillis().toString)))
       case srcField: String => df.withColumn(targetField, func(col(srcField)))

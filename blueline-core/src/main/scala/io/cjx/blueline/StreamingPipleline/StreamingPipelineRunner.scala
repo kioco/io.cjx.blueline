@@ -1,7 +1,10 @@
 package io.cjx.blueline.StreamingPipleline
+import java.util.Timer
+
 import io.cjx.blueline.StreamingPipleline.StreamingPipeline.{PreFilter, PreInput, PreOutput, Unused}
 import io.cjx.blueline.apis.BaseStaticInput
 import io.cjx.blueline.config.ConfigRuntimeException
+import io.cjx.blueline.utils.TriggerMysql
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 import org.apache.spark.streaming.StreamingContext
 
@@ -10,9 +13,7 @@ object StreamingPipelineRunner {
     val plugins = pipeline.streamingInputList ::: pipeline.staticInputList ::: pipeline.filterList ::: pipeline.outputList ::: Nil
     for (plugin <- plugins) {
       plugin.prepare(spark)
-
     }
-
     for (subPipe <- pipeline.subPipelines) {
       preparePipelineRecursively(spark, subPipe)
     }
@@ -141,16 +142,13 @@ object StreamingPipelineRunner {
         }
       }
       case PreFilter => {
-
         initStaticInputs(spark, pipeline.staticInputList)
-
         pipeline
           .streamingInputList(0)
           .start(
             spark,
             ssc,
             dataset => {
-
               var ds = dataset
               for (filter <- pipeline.filterList) {
                 if (ds.take(1).length > 0) {
@@ -163,6 +161,7 @@ object StreamingPipelineRunner {
               }
             }
           )
+
       }
       case PreOutput => {
         processPreInputForStreamingWithPreOutput(pipeline, spark, ssc)
@@ -173,9 +172,6 @@ object StreamingPipelineRunner {
     }
   }
   private def processPreInputForStreamingWithPreOutput(
-
-
-
     pipeline: StreamingPipeline,
     spark: SparkSession,
     ssc: StreamingContext  ): Unit = {
@@ -188,7 +184,6 @@ object StreamingPipelineRunner {
         spark,
         ssc,
         dataset => {
-
           var ds = dataset
           for (filter <- pipeline.filterList) {
             if (ds.take(1).length > 0) {
@@ -202,6 +197,7 @@ object StreamingPipelineRunner {
 
         }
       )
+
   }
 
   private def processPreInputForStreamingWithUnused(
@@ -326,7 +322,6 @@ object StreamingPipelineRunner {
                   + tableName + "], it seems that you configured table_name = \"" + tableName + "\" in multiple static inputs")
             case _ => datasetMap += (tableName -> ds)
           }
-
           ds.createOrReplaceTempView(tableName)
         }
         case false => {

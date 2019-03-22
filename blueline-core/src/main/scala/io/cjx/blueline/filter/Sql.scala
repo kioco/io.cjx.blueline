@@ -8,6 +8,7 @@ class Sql extends BaseFilter{
   var conf: Config = ConfigFactory.empty()
   override def process(spark: SparkSession, df: Dataset[Row]): Dataset[Row] = {
     df.createOrReplaceTempView(this.conf.getString("table_name"))
+    logInfo("=================SQL DATA:" + conf.getString("sql"))
     spark.sql(conf.getString("sql"))
   }
 

@@ -2,8 +2,8 @@ package io.cjx.blueline.config
 
 object CommandLineUtils {
 
-  val parser = new scopt.OptionParser[CommandLineArgs]("start-waterdrop.sh") {
-    head("Waterdrop", "1.0.0")
+  val parser = new scopt.OptionParser[CommandLineArgs]("start-blueline.sh") {
+    head("blueline", "1.0.0")
 
     opt[String]('c', "config").required().action((x, c) => c.copy(configFile = x)).text("config file")
     opt[Unit]('t', "check").action((_, c) => c.copy(testConfig = true)).text("check config")
@@ -19,6 +19,9 @@ object CommandLineUtils {
       .required()
       .action((x, c) => c.copy(engine = x))
       .text("application engine")
+    opt[String]('i', "variable")
+      .optional()
+      .text("variable substitution, such as -i city=beijing, or -i date=20190318").maxOccurs(Integer.MAX_VALUE)
   }
 
 }

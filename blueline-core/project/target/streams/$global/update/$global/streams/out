@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/%E6%BA%90%E7%A0%81/scala%E9%A1%B9%E7%9B%AE/blueline/blueline-core/project/}blueline-core-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/%E6%BA%90%E7%A0%81/scala%E9%A1%B9%E7%9B%AE/blueline-brance/io.cjx.blueline/blueline-core/project/}blueline-core-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#blueline-core-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -6070,19 +6070,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.7!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1486ms :: artifacts dl 31ms[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT compile produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT runtime produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT test produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT provided produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT optional produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT compile-internal produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT runtime-internal produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT test-internal produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT plugin produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT sources produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT docs produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT pom produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT scala-tool produced in /源码/scala项目/blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1486ms resolve - 31ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1519ms :: artifacts dl 28ms[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT compile produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT runtime produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT test produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT provided produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT optional produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT compile-internal produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT runtime-internal produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT test-internal produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT plugin produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT sources produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT docs produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT pom produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#blueline-core-build;0.1-SNAPSHOT scala-tool produced in /源码/scala项目/blueline-brance/io.cjx.blueline/blueline-core/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-blueline-core-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (1519ms resolve - 28ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

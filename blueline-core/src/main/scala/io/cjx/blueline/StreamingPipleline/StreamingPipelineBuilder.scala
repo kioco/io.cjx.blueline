@@ -53,12 +53,13 @@ object StreamingPipelineBuilder {
 
     // subPipelineStartingPoint alignment order: PreInput --> PreFilter --> PreOutput
     var subPipelineType: PipelineType = Unknown
-    val r = """^pipeline<([0-9a-zA-Z_]+)>""".r // pipeline<pname> pattern
+    val r = """^StreamingPipeline<([0-9a-zA-Z_]+)>""".r // pipeline<pname> pattern
     for (configName <- config.root.unwrapped.keySet) {
       configName match {
-        case name if name.startsWith("pipeline") => {
+        case name if name.startsWith("StreamingPipeline") => {
 
           val r(pipelineName) = name
+          //subPipeline-piple-列表--pType-straming-batch--subSP-subexecstart
 
           val (subPipeline, pType, subSP) = recursiveBuilder(config.getConfig(name), pipelineName)
 

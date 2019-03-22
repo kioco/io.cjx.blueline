@@ -37,7 +37,6 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-streaming-kafka-0-10" % sparkVersion
     exclude("org.spark-project.spark", "unused")
     exclude("net.jpountz.lz4", "unused"),
-  "org.apache.spark" %% "spark-sql-kafka-0-10" % sparkVersion,
   "org.apache.spark" %% "spark-hive" % sparkVersion ,
   "org.mongodb.spark" %% "mongo-spark-connector" % "2.2.0",
   "org.apache.kudu" %% "kudu-spark2" % "1.7.0",
@@ -56,7 +55,7 @@ libraryDependencies ++= Seq(
     exclude("com.google.guava","guava")
     excludeAll(ExclusionRule(organization="com.fasterxml.jackson.core")),
   "com.databricks" %% "spark-xml" % "0.5.0"
-)
+).map(_.exclude("com.typesafe", "config"))
 
 // For binary compatible conflicts, sbt provides dependency overrides.
 // They are configured with the dependencyOverrides setting.
@@ -84,8 +83,12 @@ antlr4GenListener in Antlr4 := false
 antlr4GenVisitor in Antlr4 := true
 
 publishTo := Some(
-  if (isSnapshot.value)
+  if (isSnapshot.value){
     Opts.resolver.sonatypeSnapshots
-  else
+  }
+
+  else{
     Opts.resolver.sonatypeStaging
+  }
+
 )

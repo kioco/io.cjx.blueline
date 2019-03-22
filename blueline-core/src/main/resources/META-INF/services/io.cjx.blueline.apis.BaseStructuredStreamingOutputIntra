@@ -1,1 +1,3 @@
 io.cjx.blueline.output.structuredstreaming.KafkaSink
+io.cjx.blueline.output.structuredstreaming.MysqlSink
+io.cjx.blueline.output.structuredstreaming.Stdout

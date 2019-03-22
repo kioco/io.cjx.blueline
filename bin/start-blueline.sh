@@ -23,6 +23,13 @@ while (( "$#" )); do
       shift 2
       ;;
 
+      -i|--variable)
+      variable=$2
+      java_property_value="-D${variable}"
+      variables_substitution="${java_property_value} ${variables_substitution}"
+      shift 2
+      ;;
+
     --) # end argument parsing
       shift
       break
@@ -98,18 +105,56 @@ function get_spark_conf {
     fi
     echo ${spark_conf}
 }
-
+string_trim() {
+    echo $1 | awk '{$1=$1;print}'
+}
 sparkconf=$(get_spark_conf)
+# Spark Driver Options
+variables_substitution=$(string_trim "${variables_substitution}")
+driverJavaOpts=""
+executorJavaOpts=""
+clientModeDriverJavaOpts=""
+if [ ! -z "${variables_substitution}" ]; then
+  driverJavaOpts="${variables_substitution}"
+  executorJavaOpts="${variables_substitution}"
+  # in local, client mode, driverJavaOpts can not work, we must use --driver-java-options
+  clientModeDriverJavaOpts="${variables_substitution}"
+fi
 
+## compress plugins.tar.gz in cluster mode
+if [ "${DEPLOY_MODE}" == "cluster" ]; then
+
+  plugins_tar_gz="${APP_DIR}/plugins.tar.gz"
+
+  if [ ! -f "${plugins_tar_gz}" ]; then
+    cur_dir=$(pwd)
+    cd ${APP_DIR}
+    tar zcf plugins.tar.gz plugins
+    if [ "$?" != "0" ]; then
+      echo "[ERROR] failed to compress plugins.tar.gz in cluster mode"
+      exit -2
+    fi
+
+    echo "[INFO] successfully compressed plugins.tar.gz in cluster mode"
+    cd ${cur_dir}
+  fi
+fi
 echo "[INFO] spark conf: ${sparkconf}"
 echo "[INFO] JarDepOpts conf: ${JarDepOpts}"
 echo "[INFO] FilesDepOpts conf: ${FilesDepOpts}"
 echo "[INFO] assemblyJarName conf: ${assemblyJarName}"
 echo "[INFO] CMD_ARGUMENTS conf: ${CMD_ARGUMENTS}"
+
+echo "[INFO] clientModeDriverJavaOpts conf: ${clientModeDriverJavaOpts}"
+echo "[INFO] executorJavaOpts conf: ${executorJavaOpts}"
+echo "[INFO] driverJavaOpts conf: ${driverJavaOpts}"
 exec ${SPARK_HOME}/bin/spark-submit --class io.cjx.blueline.BluelineSource \
     --name $(getAppName ${CONFIG_FILE}) \
     --master ${MASTER} \
     --deploy-mode ${DEPLOY_MODE} \
+    --driver-java-options "${clientModeDriverJavaOpts}" \
+    --conf spark.executor.extraJavaOptions="${executorJavaOpts}" \
+    --conf spark.driver.extraJavaOptions="${driverJavaOpts}" \
     ${sparkconf} \
     ${JarDepOpts} \
     ${FilesDepOpts} \

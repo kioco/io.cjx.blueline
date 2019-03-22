@@ -2,7 +2,7 @@ package io.cjx.blueline
 
 import java.io.File
 
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.{Config, ConfigFactory, ConfigRenderOptions, ConfigResolveOptions}
 import io.cjx.blueline.StreamingPipleline.StreamingPipeline.{Batch, PipelineType, Streaming, Unknown}
 import io.cjx.blueline.StreamingPipleline.{StreamingPipeline, StreamingPipelineBuilder, StreamingPipelineRunner}
 import io.cjx.blueline.apis._
@@ -67,10 +67,6 @@ object BluelineSource {
       }
     }
   private def entrypoint(configFile: String, engine: String): Unit = {
-
-
-
-
     engine match {
       case "sparkstreaming" => {
         //val staticInputs = configBuilder.createStaticInputs(engine)
@@ -81,8 +77,24 @@ object BluelineSource {
         //baseCheckConfig(staticInputs, streamingInputs, filters, outputs)
         //streamingProcessing(sparkSession, configBuilder, staticInputs, streamingInputs, filters, outputs)
         //----------
-        val rootConfig = ConfigFactory.parseFile(new File(configFile))
-        val (rootPipeline, rootPipelineType, _) = StreamingPipelineBuilder.recursiveBuilder(rootConfig, "ROOT_PIPELINE")
+        //val rootConfig = ConfigFactory.parseFile(new File(configFile))
+
+        if (configFile == "") {
+          throw new ConfigRuntimeException("Please specify config file")
+        }
+
+        println("[INFO] Loading config file: " + configFile)
+
+        // variables substitution / variables resolution order:
+        // onfig file --> syste environment --> java properties
+        val config = ConfigFactory
+          .parseFile(new File(configFile))
+          .resolve(ConfigResolveOptions.defaults().setAllowUnresolved(true))
+          .resolveWith(ConfigFactory.systemProperties, ConfigResolveOptions.defaults.setAllowUnresolved(true))
+
+        val options: ConfigRenderOptions = ConfigRenderOptions.concise.setFormatted(true)
+        println("[INFO] parsed config file: " + config.root().render(options))
+        val (rootPipeline, rootPipelineType, _) = StreamingPipelineBuilder.recursiveBuilder(config, "ROOT_PIPELINE")
         rootPipelineType match {
           case Unknown => {
             throw new ConfigRuntimeException("Cannot not detect pipeline type, please check your config")
@@ -126,7 +138,7 @@ object BluelineSource {
           }
         }
 
-        streamingProcessing(rootConfig, rootPipeline, rootPipelineType)
+        streamingProcessing(config, rootPipeline, rootPipelineType)
       }
 
       case "structuredstreaming" => {
