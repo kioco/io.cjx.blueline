@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="sbt: org.apache.kudu:kudu-spark2_2.11:1.7.0:jar">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.kudu/kudu-spark2_2.11/jars/kudu-spark2_2.11-1.7.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
