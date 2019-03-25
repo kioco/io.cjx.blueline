@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sbt: ru.yandex.clickhouse:clickhouse-jdbc:0.1.39:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/ru.yandex.clickhouse/clickhouse-jdbc/jars/clickhouse-jdbc-0.1.39.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
