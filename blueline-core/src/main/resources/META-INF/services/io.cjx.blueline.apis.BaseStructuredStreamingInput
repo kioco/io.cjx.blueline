@@ -1,1 +1,1 @@
-io.cjx.blueline.input.structuredstreaming.StructuredKafkaStream
+io.cjx.blueline.input.StructuredKafkaStream

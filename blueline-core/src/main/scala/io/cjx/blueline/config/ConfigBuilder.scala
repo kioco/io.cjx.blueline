@@ -195,7 +195,7 @@ class ConfigBuilder(configFile: String) {
         case _ => "batch"
       }
       val packageName = classType match {
-        case "input" => ConfigBuilder.InputPackage + "." + inputType
+        case "input" => ConfigBuilder.InputPackage //+ "." + inputType
         case "filter" => ConfigBuilder.FilterPackage
         case "output" => ConfigBuilder.OutputPackage + "." + engine
       }
@@ -216,10 +216,17 @@ class ConfigBuilder(configFile: String) {
           // get class name prefixed by package name
           val clzNameLowercase = clz.getName.toLowerCase()
           val qualifierWithPackage = packageName + "." + qualifier
-          if (clzNameLowercase == qualifierWithPackage.toLowerCase) {
-            qualifier = clz.getName
-            classFound = true
-            break
+          clzNameLowercase == qualifierWithPackage.toLowerCase match {
+            case true =>{
+              qualifier = clz.getName
+              classFound = true
+              break
+            }
+            case false => {
+
+
+            }
+
           }
         }
       }

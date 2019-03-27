@@ -1,3 +1,3 @@
-io.cjx.blueline.input.batch.Jdbc
-io.cjx.blueline.input.batch.Mysql
-io.cjx.blueline.input.batch.Hive
+io.cjx.blueline.input.Jdbc
+io.cjx.blueline.input.Mysql
+io.cjx.blueline.input.Hive

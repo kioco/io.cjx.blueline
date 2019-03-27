@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sbt: com.pingcap.tikv:tikv-client:1.1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.pingcap.tikv/tikv-client/jars/tikv-client-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

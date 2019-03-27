@@ -14,7 +14,7 @@ import scala.util.control.Breaks.{break, breakable}
 object StreamingPipelineBuilder {
   val PackagePrefix = "io.cjx.blueline"
   val FilterPackage = PackagePrefix + ".filter"
-  val InputPackage = PackagePrefix + ".input.straming"
+  val InputPackage = PackagePrefix + ".input"
   val OutputPackage = PackagePrefix + ".output.streaming"
 
   val PluginNameKey = "name"

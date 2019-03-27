@@ -3,13 +3,12 @@ organization := "io.cjx.blueline"
 version := "0.1"
 
 scalaVersion := "2.11.8"
-val sparkVersion = "2.4.0"
+val sparkVersion = "2.3.0"
 lazy val providedDependencies = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "org.apache.spark" %% "spark-streaming" % sparkVersion
 )
-
 // Change dependepcy scope to "provided" by : sbt -DprovidedDeps=true <task>
 // Change dependepcy scope to "provided" by : sbt -DprovidedDeps=true <task>
 val providedDeps = Option(System.getProperty("providedDeps")).getOrElse("false")

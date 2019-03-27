@@ -4,7 +4,6 @@ import java.util.Timer
 import io.cjx.blueline.StreamingPipleline.StreamingPipeline.{PreFilter, PreInput, PreOutput, Unused}
 import io.cjx.blueline.apis.BaseStaticInput
 import io.cjx.blueline.config.ConfigRuntimeException
-import io.cjx.blueline.utils.TriggerMysql
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 import org.apache.spark.streaming.StreamingContext
 

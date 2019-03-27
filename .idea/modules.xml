@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blueline.iml" filepath="$PROJECT_DIR$/.idea/modules/blueline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blueline-apis.iml" filepath="$PROJECT_DIR$/.idea/modules/blueline-apis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blueline-apis-build.iml" filepath="$PROJECT_DIR$/.idea/modules/blueline-apis-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blueline-core.iml" filepath="$PROJECT_DIR$/.idea/modules/blueline-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blueline-core-build.iml" filepath="$PROJECT_DIR$/.idea/modules/blueline-core-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/waterdrop-build.iml" filepath="$PROJECT_DIR$/.idea/modules/waterdrop-build.iml" />
+    </modules>
+  </component>
+</project>

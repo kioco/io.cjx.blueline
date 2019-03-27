@@ -5,12 +5,13 @@ import java.sql.{Connection, DriverManager, PreparedStatement}
 import org.apache.spark.sql.{ForeachWriter, Row}
 import org.apache.spark.internal.Logging
 class MysqlSource (url: String, user: String, pwd: String,prepareStatement:String) extends ForeachWriter[Row]{
-  var conn: Connection= null
-  var p: PreparedStatement= null
+  var conn: Connection= _
+  var p: PreparedStatement= _
   override def open(partitionId: Long, epochId: Long): Boolean = {
     Class.forName("com.mysql.jdbc.Driver")
     conn = DriverManager.getConnection(url, user, pwd)
     p = this.conn.prepareStatement(prepareStatement)
+    conn.setAutoCommit(false)
     true
   }
 
@@ -27,7 +28,14 @@ class MysqlSource (url: String, user: String, pwd: String,prepareStatement:Strin
 
   override def close(errorOrNull: Throwable): Unit = {
     if(conn != null){
-      p.executeBatch()
+      if(errorOrNull == null){
+        p.executeBatch()
+        conn.commit()
+        p.close()
+
+      }else{
+        conn.rollback()
+      }
       conn.close()
     }
   }
