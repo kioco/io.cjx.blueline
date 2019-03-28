@@ -94,7 +94,7 @@ fi
 
 assemblyJarName=$(find ${LIB_DIR} -name blueline-*.jar)
 
-source ${CONF_DIR}/waterdrop-env.sh
+source ${CONF_DIR}/blueline-env.sh
 
 ## get spark conf from config file and specify them in spark-submit
 function get_spark_conf {
