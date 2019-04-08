@@ -4,7 +4,7 @@
 		module="io-cjx-blueline-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20190327142157"
+		publication="20190408143531"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

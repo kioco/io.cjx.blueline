@@ -13,9 +13,11 @@ import org.apache.commons.lang3.exception.ExceptionUtils
 import org.apache.hadoop.fs.Path
 import org.apache.spark.SparkConf
 import org.apache.spark.internal.Logging
+import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.streaming.{StreamingQuery, StreamingQueryListener}
 import org.apache.spark.sql.streaming.StreamingQueryListener.{QueryProgressEvent, QueryStartedEvent, QueryTerminatedEvent}
-import org.apache.spark.sql.{Dataset, Row, SparkSession}
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.{Dataset, Row, SaveMode, SparkSession}
 import org.apache.spark.streaming._
 
 import scala.collection.JavaConversions._
@@ -261,7 +263,8 @@ object BluelineSource {
     filters: List[BaseFilter],
     structuredStreamingOutputs: List[BaseStructuredStreamingOutputIntra]): Unit = {
     basePrepare(sparkSession, staticInputs, structuredStreamingInputs, filters, structuredStreamingOutputs)
-
+    //监控
+    //listener(sparkSession)
     val datasetList = structuredStreamingInputs.map(p => {
       p.getDataset(sparkSession)
     })
@@ -380,6 +383,42 @@ object BluelineSource {
       }
     }
     deployModeCheck()
+  }
+  private def listener(sparkSession: SparkSession): Unit = {
+    sparkSession.streams.addListener(new StreamingQueryListener() {
+      override def onQueryStarted(event: QueryStartedEvent): Unit = {
+        //do something
+
+
+      }
+      override def onQueryProgress(event: QueryProgressEvent): Unit = {
+        //do listener
+        if(event.progress.eventTime.containsKey("min")){
+          val event_time=event.progress.eventTime.get("min").toString
+          for (i <- 0 until event.progress.sources.length){
+            println(i + "==========event.progress.sources=======" + event.progress.sources(i).startOffset)
+            if(!event.progress.sources(i).startOffset.isEmpty){
+              import sparkSession.implicits._
+
+              val schema = new StructType()
+                .add("time", StringType,true).add("message", StringType, true)
+              var datar=sparkSession.sqlContext.sparkContext.parallelize(event.progress.sources.map(p => {
+                Row(event_time,p.startOffset.toString)
+              }))
+              sparkSession.sqlContext.createDataFrame(datar,schema).write.mode(SaveMode.Overwrite).parquet("/tmp/000000")
+              println("*********************************************insert ok*********************************")
+              sparkSession.read.parquet("/tmp/000000/*").select().printSchema()
+
+            }
+          }
+        }
+      }
+      override def onQueryTerminated(event: QueryTerminatedEvent): Unit = {
+        //do something
+
+
+      }
+    })
   }
   private def deployModeCheck(): Unit = {
     Common.getDeployMode match {

@@ -1,7 +1,7 @@
 
 name := "blueline"
 
-version := "0.1"
+version := "0.1.2"
 organization := "io.cjx.blueline"
 scalaVersion := "2.11.8"
 

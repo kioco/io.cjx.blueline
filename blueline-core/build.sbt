@@ -6,7 +6,7 @@ scalaVersion := "2.11.8"
 
 
 
-val sparkVersion = "2.3.0"
+val sparkVersion = "2.3.2"
 
 lazy val providedDependencies = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
@@ -55,9 +55,11 @@ libraryDependencies ++= Seq(
   "ru.yandex.clickhouse" % "clickhouse-jdbc" % "0.1.39"
     exclude("com.google.guava","guava")
     excludeAll(ExclusionRule(organization="com.fasterxml.jackson.core")),
-  "com.databricks" %% "spark-xml" % "0.5.0"
+  "org.apache.httpcomponents" % "httpasyncclient" % "4.1.3",
+  "com.databricks" %% "spark-xml" % "0.5.0",
+  "com.mchange" % "c3p0" % "0.9.5.2"
 )
-
+//libraryDependencies += "org.influxdb" % "influxdb-java" % "2.5"
 // For binary compatible conflicts, sbt provides dependency overrides.
 // They are configured with the dependencyOverrides setting.
 dependencyOverrides += "com.google.guava" % "guava" % "15.0"

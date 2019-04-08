@@ -35,7 +35,7 @@ class MongoDB extends BaseStaticInput{
   }
 
   override def prepare(spark: SparkSession): Unit = {
-    super.prepare(spark)git
+    super.prepare(spark)
     val map = new collection.mutable.HashMap[String, String]
     config
       .getConfig(confPrefix)

@@ -11690,7 +11690,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.7!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1374ms :: artifacts dl 35ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1591ms :: artifacts dl 45ms[0m
 [0m[[0mdebug[0m] [0m	report for default#io-cjx-blueline-build;0.1-SNAPSHOT compile produced in /git项目/remote_blueline/io.cjx.blueline/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-io-cjx-blueline-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#io-cjx-blueline-build;0.1-SNAPSHOT runtime produced in /git项目/remote_blueline/io.cjx.blueline/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-io-cjx-blueline-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#io-cjx-blueline-build;0.1-SNAPSHOT test produced in /git项目/remote_blueline/io.cjx.blueline/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-io-cjx-blueline-build-test.xml[0m
@@ -11704,5 +11704,5 @@
 [0m[[0mdebug[0m] [0m	report for default#io-cjx-blueline-build;0.1-SNAPSHOT docs produced in /git项目/remote_blueline/io.cjx.blueline/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-io-cjx-blueline-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#io-cjx-blueline-build;0.1-SNAPSHOT pom produced in /git项目/remote_blueline/io.cjx.blueline/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-io-cjx-blueline-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#io-cjx-blueline-build;0.1-SNAPSHOT scala-tool produced in /git项目/remote_blueline/io.cjx.blueline/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-io-cjx-blueline-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1374ms resolve - 35ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (1591ms resolve - 45ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
